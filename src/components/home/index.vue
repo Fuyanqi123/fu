@@ -3,7 +3,7 @@
         <header>
             <p>学生管理系统</p>
             <p></p>
-            <p>{{tile}}</p>
+            <p><button @click="signout" style="border: 0;outline: none;background: #0DACDD;font-size: 20px;color: white;">退出</button></p>
         </header>
         <section> 
             <div class="left">
@@ -32,11 +32,9 @@
                     {"name":"员工信息","status":true,"path":"/xinxi","id":1},
                     {"name":"更多信息","status":false,"path":"/guanli","id":2},
                 ],
-                tile:""
             }
         },
         created() {
-                this.tile=localStorage.getItem('username')
         },
         methods:{
             showbtn(id){
@@ -48,7 +46,11 @@
                         item.status=false;
                     }
                 })
-            }
+            },
+			signout(){
+				localStorage.clear()
+				window.location.reload()
+			}
         }
     }
     
